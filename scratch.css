@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+body{
+    background-color:rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    font-family: "Roboto", sans-serif;
+    padding: 0;
+    margin: 0;
+}
+#blur{
+    height: 100%;
+    width: 100%;
+    position: grid;
+    z-index: 3;
+    backdrop-filter: blur(10px);
+}
+#blob {
+    background: linear-gradient(
+            to right,
+            aquamarine,
+            mediumpurple
+    ); /* added closing parenthesis */
+    height: 150px;
+    aspect-ratio: 1;
+    position: fixed; /* added this, so the top and left properties work */
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%); /* corrected property name and values */
+    border-radius: 50%;
+    filter: blur(50px);
+    z-index: 1;    
+}
+
+@keyframes color-change {
+    0% {
+        background: linear-gradient(to right, aquamarine, mediumpurple);
+    }
+    50% {
+        background: linear-gradient(to right, mediumpurple, aquamarine);
+    }
+    100% {
+        background: linear-gradient(to right, aquamarine, mediumpurple);
+    }
+}
+@keyframes rotate {
+    from{
+        rotate: 0deg;
+    }
+    50% {
+        scale: 1 1.5;
+    }
+    to {
+        rotate: 360deg;
+    }
+}
+section{
+    color: aliceblue;
+    display: grid;
+    place-items: center;
+    align-content: center;
+    min-height: 100%;
+    margin-bottom: 700px;
+    animation: slideInFromLeft 3s ease forwards;
+    
+}
+
+
+.hidden{
+    opacity: 0;
+    filter:blur(3px);
+    transform:translateX(-90%);
+    transition: all 2s;
+}
+.show{
+    opacity: 1;
+    filter: blur(0);
+    transform: translateX(0);
+
+}
+.html{
+    scroll-behavior: smooth;
+}
+@keyframes slideInFromLeft {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
